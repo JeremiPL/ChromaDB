@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Documents</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+	<main class="container">
+		<header class="page-header">
+			<p class="kicker">Reference Archive</p>
+			<h1>Document Catalog</h1>
+			<p class="subtitle">A quick scholarly view of your indexed texts.</p>
+		</header>
+
+		<section class="search-panel">
+			<form id="search-form" class="search-form">
+				<label for="search-input">Search the document collection</label>
+				<div class="search-row">
+					<input id="search-input" name="query" type="text" placeholder="Try: space science, music, python" autocomplete="off">
+					<button type="submit">Search</button>
+					<button type="button" id="reset-button" class="secondary">Show All</button>
+				</div>
+			</form>
+		</section>
+
+		<section class="table-shell">
+			<div class="table-meta">
+				<p id="status-message">Loading documents...</p>
+			</div>
+			<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Document</th>
+					<th>Distance</th>
+				</tr>
+			</thead>
+			<tbody id="documents-body"></tbody>
+			</table>
+		</section>
+		<p id="error-message" class="error" hidden>Unable to load documents.</p>
+	</main>
+
+	<script src="/script.js"></script>
+</body>
+</html>
