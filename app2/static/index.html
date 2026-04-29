@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Chunker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <main class="page">
+        <section class="panel">
+            <header class="hero">
+                <p class="eyebrow">Chunk Playground</p>
+                <h1>Split Text Into Chunks</h1>
+                <p class="subhead">Paste text, set chunk controls, and inspect each chunk with its exact length.</p>
+            </header>
+
+            <form id="chunk-form" class="chunk-form">
+                <label for="text-input">Text</label>
+                <textarea id="text-input" name="text" placeholder="Paste your text here..." required></textarea>
+
+                <div class="controls">
+                    <div class="field">
+                        <label for="chunk-size">Chunk Size</label>
+                        <input id="chunk-size" name="chunk_size" type="number" min="1" value="200" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="chunk-overlap">Chunk Overlap</label>
+                        <input id="chunk-overlap" name="chunk_overlap" type="number" min="0" value="20" required>
+                    </div>
+                </div>
+
+                <button type="submit" id="submit-button">Create Chunks</button>
+            </form>
+
+            <p id="status-message" class="status">Waiting for input.</p>
+            <p id="error-message" class="error" hidden></p>
+        </section>
+
+        <section class="results" aria-live="polite">
+            <div class="results-head">
+                <h2>Results</h2>
+                <p id="result-summary">No chunks yet.</p>
+            </div>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Chunk</th>
+                            <th>Length</th>
+                        </tr>
+                    </thead>
+                    <tbody id="chunks-body">
+                        <tr>
+                            <td colspan="3" class="empty">Submit text to see chunk output.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="/script.js"></script>
+</body>
+</html>
